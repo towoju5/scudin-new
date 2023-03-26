@@ -1,0 +1,404 @@
+*{
+    margin: 0;
+}
+nav{
+    background-color: #000000;
+}
+nav a{
+    color: whitesmoke;
+}
+.icon-bar{
+    background-color: whitesmoke;
+}
+/* hero */
+.hero{
+    background-color: #000000;
+    height: 600px;
+    margin-top: -22px;
+}
+.news{
+    color: white;
+    padding: 75px 0 0 380px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.hero-date{
+    display: flex;
+    margin: 50px 0 0 380px;
+}
+.hero-date-left button{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    background-color: #000000;
+    border:2px solid #ff9900;
+    padding: 24px 20px;
+    color: whitesmoke;
+    border-radius: 50%;
+}
+.hero-date-left{
+    margin-right: 30px;
+}
+.hero-date-left h3{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: whitesmoke;
+    margin: 40px 0;
+}
+.hero-date-left p{
+    color: whitesmoke;
+    letter-spacing: 10px;
+    font-size: 20px;
+}
+.hero-date-right{
+    border-left: 2px solid whitesmoke;
+}
+.hero-date-right h1{
+    width: 790px;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+    font-weight: 900;
+    line-height: 55px;
+    padding-left: 40px;
+}
+.hero-date-right p{
+    margin-top: 40px;
+    padding-left: 40px;
+    color: whitesmoke;
+}
+.hero img{
+    margin:70px 0 0 380px;
+}
+.dropdown-menu li a{
+    color: whitesmoke;
+}
+
+/* .reading */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .main,
+  .sidebar {
+    padding: 15px;
+  }
+  
+  .main {
+    height: 150vh;
+  }
+  
+  .sidebar {
+    height: 25vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
+  }
+  #progress{
+    height: 70px;
+    width: 70px;  
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    place-items: center;
+    display: grid;
+    background-color: #ff9900;
+  }
+  #progress-value{
+    height: calc(100% - 15px);
+    width: calc(100% - 15px);
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 500;
+  }
+.reading{
+    display: flex;
+    width: 100%;
+    margin-top: 550px;
+    justify-content: center;
+    padding:0 200px ;
+}
+.left-side h3{
+    width: 240px;
+    font-size: 18px;
+}
+.left-side p i{
+    font-size: 25px;
+    letter-spacing: 20px;
+}
+.reading .left-side{
+    width: 50%;
+    top: 10px;
+    position: sticky;
+    -webkit-position: sticky;
+}
+
+.reading .right-side{
+    width: 50%;
+} 
+/* innovative-driver-safety */
+.innovative-driver-safety h1{
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 610px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.innovative-driver-safety p{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 610px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+/* amazonNews */
+.amazonNews{
+    border: 1px black solid;
+    width: 610px;
+    border-top:2px solid #ff9900;
+    padding: 80px;
+    margin: 15px ;
+}
+
+/* mora about amazone */
+.more-about-text p i{
+ font-size: 20px;
+}
+.more-about-amazon{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 200px;
+}
+.more-about-cards button{
+    margin: 10px;
+    background-color: transparent;
+    border: none;  
+    padding: 2px 15px;
+    border-radius: 15px;
+}
+.more-about-cards p{
+    width: 229px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.card-footer{
+    display: flex;
+    
+}
+
+/* footer */
+footer{
+    height: 545px;
+    background-color: #18202A;
+    color: whitesmoke;
+}
+.footer-text{
+    display: flex;
+}
+footer h1{
+    margin:100px 0 0 400px;
+}
+.amazon-news{
+    margin:100px 100px;
+}
+.press-center{
+    height: 250px;
+    margin-top:100px;
+    padding-right: 100px;
+    border-right: 1px solid #DDDDDD;
+}
+.footer h5{
+    margin-bottom: 25px;
+}
+.icons p{
+    font-size: 30px;
+    margin-left:400px ;
+    letter-spacing: 20px;
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    .hero img{
+        margin:0px 0 0 100px;
+    }
+    
+    
+  }
+  
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    nav{
+        width: 100%;
+    }
+    
+  /* news */
+    .news{
+        padding: 55px 0 0 20px;
+    }
+    /* hero */
+    .hero-date{
+        flex-direction: column;
+        margin: 0px 0 0 0px;
+    }
+    .hero-date-left{
+        margin-left: 30px;
+    }
+    .hero-date-right{
+        border-left: none;
+    }
+    .hero-date-right h1{
+        width: 776px;
+    }
+    .hero img{
+        width: 770px;
+        height: 461px;
+        margin: 0 0 0 0;
+    }
+    /* footer */
+    footer h1{
+        margin:100px 0 0 150px;
+    }
+    .press-center{
+        border-right: none;
+    }
+    .footer h5{
+        margin-bottom: 25px;
+    }
+    .icons p{
+        font-size: 30px;
+        margin-left:250px ;
+        letter-spacing: 20px;
+    }
+    /* mare about amazon */
+    .more-about-text p i{
+        font-size: 20px;
+       }
+       .more-about-amazon{
+           display: flex;
+           justify-content: space-around;
+       }
+       .more-about-cards button{
+           margin: 10px;
+           background-color: transparent;
+           border: none;  
+           padding: 2px 15px;
+           border-radius: 15px;
+       }
+       .more-about-cards p{
+           width: 150px;
+           font-size: 14px;
+           font-family: Arial, Helvetica, sans-serif;
+       }
+       .more-about-cards img{
+        width: 180px;
+        height: 120px;
+       }
+       /* reading seation */
+       .left-side{
+        display: none;
+       }
+       .innovative-driver-safety{
+            height: 900px;
+       }
+
+       
+
+    
+  }
+
+  /* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  /* hero */
+    .hero-date-right h1{
+        width: 356px;
+        font-size: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: whitesmoke;
+        font-weight: 900;
+        padding-left: 0px;
+    }
+    .hero-date{
+        flex-direction: column;
+        margin: 0px 0 0 20px;
+    }
+    .hero-date-left{
+        margin:0 0 0 0px;
+    }
+    .hero img{
+        width: 390px;
+        height: 219px;
+        margin: 0 0 0 0;
+    }
+    .hero-date-right{
+        border-left: none;
+    }
+    .news{
+        color: white;
+        padding: 22px 0 0 20px;
+    }
+    /* reading */
+    .left-side{
+        display: none;
+    }
+    .innovative-driver-safety{
+        margin-top: -400px;
+        height: 1600px;
+    }
+    .innovative-driver-safety h1{
+        width: 350px;
+        margin-left: 0 ;
+    }
+    .innovative-driver-safety p{
+        width: 350px;
+        margin-left: 0 ;
+    }
+    /* footer */
+    footer{
+        height: 550px;
+    }
+    .footer-text{
+        flex-direction: column;
+    }
+    footer h1{
+        margin:20px 0 0 20px;
+    }
+    .amazon-news{
+        margin:20px 20px;
+    }
+    .press-center{
+        border-right: none;
+    }
+    .footer h5{
+        margin-bottom: 0px;
+    }
+    .icons p{
+        font-size: 30px;
+        margin-left:250px ;
+        letter-spacing: 20px;
+    }
+    .press-center{
+        margin:0 0 0 20px;
+        padding-right: 20px;
+    }
+    .icons p{
+        margin-left:20px ;
+        letter-spacing: 20px;
+    }
+     /* mare about amazon */
+    .more-about-amazon{
+        flex-direction: column;
+        padding-left: 30px;
+    }
+  }

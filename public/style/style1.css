@@ -1,0 +1,799 @@
+* {
+    margin: 0;
+}
+nav {
+    background-color: #111111;
+    border-radius: none;
+}
+nav a {
+    color: whitesmoke;
+}
+.icon-bar {
+    background-color: whitesmoke;
+}
+.dropdown-menu li a {
+    color: whitesmoke;
+}
+/* Nav-xshop  */
+.nav-xshop {
+    height: 40px;
+    background-color: #082020;
+    color: whitesmoke;
+    margin-top: -21px;
+    display: flex;
+    padding-top: 3px;
+}
+.nav-xshop h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 30px;
+    font-size: 15px;
+}
+/* sell-on-amazon */
+.sell-on-amazon {
+    padding-top: 30px;
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.sell-on-amazon h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: #232f3e;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 0;
+}
+.sell-on-amazon-btn {
+    padding: 10px 22px;
+    font-size: 16px;
+    color: #232f3e;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 100px;
+    font-weight: 800;
+    background-color: #ff9900;
+    border: none;
+}
+/* Become an Amazon seller */
+.become-an-seller {
+    height: 550px;
+    display: flex;
+    justify-content: space-around;
+}
+/* .become-an-seller-text {
+    margin: 100px 0 0 120px;
+} */
+
+.become-an-seller h1 {
+    width: 100%;
+    font-size: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #232f3e;
+    font-weight: 600;
+}
+.become-an-seller h6 {
+    width: 445px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #232f3e;
+    font-weight: 400;
+    margin: 30px 0;
+}
+.become-an-seller-btn {
+    padding: 10px 22px;
+    font-size: 24px;
+    color: #232f3e;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 100px;
+    font-weight: 700;
+    background-color: #ff9900;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.become-an-seller-img {
+    margin: 40px 0 0 0;
+}
+
+/* sales */
+.sale {
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    align-items: center;
+}
+.sale-img {
+    margin-left: 300px;
+}
+.sale-text {
+    margin-left: 70px;
+    padding-top: 40px;
+}
+.sale-text h1 {
+    font-size: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+}
+.sale-text h3 {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    /* width: 720px; */
+    margin: 20px 0;
+    line-height: 35px;
+}
+.sale-text p {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    width: 600px;
+    margin: 10px 0;
+}
+.sale-text i {
+    color: rgb(72, 72, 223);
+}
+/* finance section  */
+.finance {
+    display: flex;
+    padding: 50px 0 0 280px;
+}
+.finance-card {
+    width: 388px;
+    width: 408px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 15px;
+    margin: 25px;
+}
+.finance-card h1 {
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    color: #232f3e;
+}
+.finance-card p {
+    font-size: 16px;
+    width: 302px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #232f3e;
+}
+/* steven-yang */
+.steven-yang {
+    display: flex;
+    margin-top: 60px;
+}
+
+/* .steven-yang-img {
+    margin-left: 300px;
+} */
+
+/* .steven-yang-text {
+    margin-left: 100px;
+} */
+
+.steven-yang-text h1 {
+    /* width: 696px; */
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+}
+.steven-yang-info {
+    display: flex;
+    margin-top: 20px;
+}
+.steven-yang-info h2 {
+    font-size: 24px;
+    font-weight: 900;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.steven-yang-info p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* learn more */
+.learn-more ul {
+    list-style-type: none;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.learn-more {
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: auto;
+    margin-top: 20px;
+    margin-top: 50px;
+}
+.learn-more-h1 {
+    text-align: center;
+    /* font-size: 24px; */
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 40px;
+}
+.learn-more-p-1 {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 0 0 40px;
+}
+.learn-more-p {
+    display: flex;
+    justify-content: space-around;
+}
+/* Introduction to ecommerce selling */
+/* .introduction-cards{
+    display: flex;
+    margin: 30px;
+} */
+.intriduction-h1 {
+    text-align: center;
+    font-size: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    color: #232f3e;
+    padding: 100px 0;
+}
+.card {
+    padding: 30px;
+    /* margin: 15px; */
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+.introduction-card h1 {
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    width: 302px;
+}
+.introduction-card p {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    width: 302px;
+}
+/* start selling */
+.start-selling {
+    /* width: 100%; */
+    /* height: 100%; */
+    background-color: #161e2d;
+    border-radius: 10px;
+    margin: 15px;
+    color: whitesmoke;
+    padding: 15px;
+}
+.start-selling h1 {
+    font-size: 64px;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.start-selling p {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    /* width: 665px; */
+}
+.start-selling-btn {
+    padding: 10px 22px;
+    font-size: 24px;
+    color: #232f3e;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 100px;
+    font-weight: 700;
+    background-color: #ff9900;
+    border: none;
+    margin-top: 30px;
+}
+/* back to top */
+.back-to-top {
+    text-align: center;
+    background-color: #232f3e;
+    color: whitesmoke;
+    height: 40px;
+    margin-top: 50px;
+}
+.back-to-top p {
+    padding: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+/* Get to Know Us */
+.get-to-know {
+    display: flex;
+    justify-content: space-around;
+    /* height: 400px; */
+    background-color: #161e2d;
+    padding: 50px;
+}
+.get-to-know h2 {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: whitesmoke;
+}
+.get-to-know a {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #dddddd;
+}
+/* footer */
+footer {
+    background-color: #131a22;
+}
+.footer-row {
+    display: flex;
+    justify-content: space-around;
+}
+footer a {
+    color: whitesmoke;
+    width: 100px;
+    line-height: 10px;
+    padding: 20px 0;
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    /* Become an Amazon seller */
+    .become-an-seller-text {
+        margin: 100px 0 0 0px;
+    }
+
+    .become-an-seller h1 {
+        width: 600px;
+        font-size: 70px;
+        font-weight: 800;
+    }
+
+    /* .become-an-seller-img {
+        margin: 40px 0 0 -300px;
+    } */
+    /* sales */
+    /* .sale-img {
+        margin-left: 70px;
+    } */
+    /* finance section  */
+    .finance {
+        display: flex;
+        padding: 50px 0 0 40px;
+    }
+
+    /* steven-yang */
+    /* .steven-yang-img {
+        margin-left: 180px;
+    } */
+
+    /* Introduction to ecommerce selling */
+    .introduction-cards {
+        margin-left: 00px;
+    }
+    /* start selling */
+    /* .start-selling {
+        width: 100px;
+        margin: 150px 0 0 100px;
+    } */
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    nav a {
+        margin-left: -19px;
+        font-size: 12px;
+    }
+    /* become an seller */
+    .become-an-seller-img img {
+        height: 320px;
+        width: 320px;
+    }
+    .become-an-seller-text {
+        margin: 30px 0 0 0px;
+    }
+    .become-an-seller h1 {
+        width: 350px;
+        font-size: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #232f3e;
+        font-weight: 800;
+    }
+    .become-an-seller h6 {
+        width: 200px;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #232f3e;
+        font-weight: 400;
+        margin: 10px 0;
+    }
+    .become-an-seller-btn {
+        padding: 10px 22px;
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+    .become-an-seller-img {
+        margin: 40px 0 0 -200px;
+    }
+    /* sales */
+    .sale {
+        margin-top: -200px;
+    }
+    .sale-img {
+        display: none;
+    }
+    .sale-text {
+        margin-left: 80px;
+    }
+    .sale-text h1 {
+        font-size: 32px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+    }
+    .sale-text h3 {
+        width: 680px;
+    }
+    /* finance section  */
+    .finance {
+        padding: 0;
+        margin-left: 30px;
+    }
+    .finance-card {
+        width: 244px;
+        height: 430px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        margin-left: 5px;
+    }
+    .finance-card h1 {
+        width: 152px;
+        font-size: 32px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+        color: #232f3e;
+    }
+    .finance-card p {
+        font-size: 14px;
+        width: 152px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        color: #232f3e;
+    }
+    /* steven-yang */
+    .steven-yang {
+        margin-top: 60px;
+    }
+    .steven-yang-img {
+        margin-left: 0px;
+    }
+    .steven-yang-text {
+        margin-left: 30px;
+    }
+    .steven-yang-text h1 {
+        width: 435px;
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+    }
+    /* learn-more */
+    .learn-more {
+        width: 700px;
+        height: 558px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin: auto;
+        margin-top: 20px;
+    }
+    /* Introduction to ecommerce selling */
+    .introduction-cards {
+        flex-direction: column;
+        margin-left: 0;
+    }
+    .introduction-card {
+        /* width: 772px; */
+        height: 100%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 8px;
+        padding: 40px;
+        margin: 15px;
+    }
+    .introduction-card h1 {
+        font-size: 32px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+        width: 302px;
+    }
+    .introduction-card p {
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        width: 700px;
+    }
+    /* start selling */
+    .start-selling {
+        width: 820px;
+        height: 336px;
+        background-color: #161e2d;
+        border-radius: 10px;
+        margin: 0px 0 0 00px;
+        color: whitesmoke;
+        padding: 48px 50px;
+    }
+    .start-selling h1 {
+        font-size: 40px;
+        font-weight: 900;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+    .start-selling p {
+        font-size: 18px;
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 665px;
+        text-align: center;
+    }
+    .start-selling-btn {
+        padding: 10px 22px;
+        font-size: 24px;
+        color: #232f3e;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 100px;
+        font-weight: 700;
+        background-color: #ff9900;
+        border: none;
+        margin-top: 30px;
+        margin-left: 220px;
+    }
+    /* .get-to-know */
+    .get-to-know {
+        display: flex;
+        justify-content: space-around;
+        height: 300px;
+        background-color: #161e2d;
+        padding: 30px 100px;
+    }
+    /* footer */
+    footer {
+        display: none;
+    }
+}
+/*
+    
+  /* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    /* nav-xshop */
+    .nav-xshop h4 {
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 9px;
+        font-size: 12px;
+    }
+
+    /* sell-on-amazon */
+    .sell-on-amazon {
+        height: 110px;
+    }
+    .sell-on-amazon h1 {
+        width: 175px;
+    }
+    .sell-on-amazon-btn {
+        width: 154px;
+    }
+    /* become an seller */
+    .become-an-seller {
+        flex-direction: column;
+    }
+    .become-an-seller-img img {
+        height: 320px;
+        width: 320px;
+    }
+    .become-an-seller-text {
+        margin: 0px 0 0 0px;
+    }
+    .become-an-seller h1 {
+        width: 350px;
+        font-size: 35px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #232f3e;
+        font-weight: 800;
+        text-align: center;
+        margin: auto;
+    }
+    .become-an-seller h6 {
+        width: 300px;
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #232f3e;
+        font-weight: 400;
+        text-align: center;
+        margin: 15px 45px;
+    }
+    .become-an-seller p {
+        text-align: center;
+    }
+    .become-an-seller-btn {
+        padding: 10px 22px;
+        font-size: 15px;
+        margin-left: 120px;
+    }
+    .become-an-seller-img {
+        margin: 10px 0 0 35px;
+    }
+    /* sales */
+    .sale {
+        margin-top: -50px;
+    }
+    .sale-img {
+        display: none;
+    }
+    .sale-text {
+        margin-left: 60px;
+    }
+    .sale-text h1 {
+        width: 282px;
+        font-size: 28px;
+    }
+    .sale-text h3 {
+        width: 282px;
+    }
+    .sale-text p {
+        width: 300px;
+        margin-top: 15px;
+        line-height: 25px;
+    }
+    /* finance section  */
+    .finance {
+        flex-direction: column;
+        padding: 0;
+    }
+    .finance-card {
+        width: 347px;
+        min-height: 400px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding: 40px;
+        margin: 15px;
+    }
+    .finance-card h1 {
+        font-size: 32px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+        color: #232f3e;
+    }
+    .finance-card p {
+        font-size: 16px;
+        width: 302px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        color: #232f3e;
+    }
+    /* steven-yang */
+    .steven-yang {
+        flex-direction: column;
+        margin-top: 60px;
+    }
+    .steven-yang-img {
+        margin-left: 0px;
+    }
+    .steven-yang-text {
+        margin-left: 30px;
+    }
+    .steven-yang-text h1 {
+        width: 300px;
+        font-size: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+    }
+    /* .learn-more */
+    .learn-more h1 {
+        font-size: 24px;
+        padding: 20px;
+    }
+    .learn-more {
+        width: 330px;
+        /* height: 1050px; */
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .learn-more-p {
+        flex-direction: column;
+    }
+    /* Introduction to ecommerce selling */
+    .introduction-cards {
+        flex-direction: column;
+        margin-left: 0;
+    }
+    .intriduction-h1 {
+        font-size: 24px;
+    }
+    .introduction-card {
+        width: 330px;
+        height: 379px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 8px;
+        padding: 40px;
+        margin: 30px;
+    }
+    .introduction-card h1 {
+        font-size: 32px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+        width: 302px;
+    }
+    .introduction-card p {
+        font-size: 13px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        width: 264px;
+    }
+    /* start selling */
+    .start-selling {
+        width: 345px;
+        height: 100%;
+        background-color: #161e2d;
+        border-radius: 10px;
+        margin: 15px;
+        color: whitesmoke;
+        padding: 32px 24px;
+    }
+    .start-selling h1 {
+        font-size: 40px;
+        font-weight: 900;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+    .start-selling p {
+        font-size: 14px;
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 232px;
+        text-align: center;
+        margin-left: 30px;
+    }
+    .start-selling-btn {
+        padding: 10px 22px;
+        font-size: 24px;
+        color: #232f3e;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 100px;
+        font-weight: 700;
+        background-color: #ff9900;
+        border: none;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+    /* .get-to-know */
+    .get-to-know {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 700px;
+        background-color: #161e2d;
+        padding: 30px 100px;
+    }
+    /* footer */
+    footer {
+        display: none;
+    }
+}
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.dropdown-menu li a {
+    color: black!important;
+}

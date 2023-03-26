@@ -1,0 +1,42 @@
+{
+    "name": "rossjcooper/laravel-hubspot",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ross Cooper",
+            "email": "therossjcooper@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": ">=5.3",
+        "hubspot/hubspot-php": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rossjcooper\\LaravelHubSpot\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rossjcooper\\LaravelHubSpot\\HubSpotServiceProvider"
+            ],
+            "aliases": {
+                "HubSpot": "Rossjcooper\\LaravelHubSpot\\Facades\\HubSpot"
+            }
+        }
+    },
+    "description": "Adds a Laravel specific wrapper for the Hubspot client package",
+    "keywords": [
+        "laravel",
+        "hubspot",
+        "api",
+        "service"
+    ],
+    "require-dev": {
+        "orchestra/testbench": ">=3.4",
+        "friendsofphp/php-cs-fixer": "^2.15"
+    }
+}
