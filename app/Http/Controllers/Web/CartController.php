@@ -120,7 +120,7 @@ class CartController extends Controller
 
         $tax = round(($price * $product->tax) / 100);
         $shipping_id = $request['shipping_method_id']; //1;
-        $_shipFee = 0; //get_shipping_price_by_id($shipping_id, $product['weight'], $product['height'], $product['width'], $product['length'], $product['unit']);
+        $_shipFee = distance_matrix($shipping_id, null, $price);//get_shipping_price_by_id($shipping_id, $product['weight'], $product['height'], $product['width'], $product['length'], $product['unit']);
         $shipping_cost = ($_shipFee * $request['quantity']);
 
         // return json_encode($shipping_cost); exit;

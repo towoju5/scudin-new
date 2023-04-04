@@ -929,14 +929,14 @@ if (!function_exists("distance_matrix")) {
     * @param string $key, $newValue
     */
    // function distance_matrix($store_address, $customer_address)
-   function distance_matrix($method, $customer_address_id)
+   function distance_matrix($method, $customer_address_id=null, $product_price=null)
    {
       $user_address = $customer_address_id ?? auth('customer')->id();
       $userAddress = DB::table('shipping_addresses')->find($user_address);
       $storeAddress = ShippingMethod::find($method);
 
       if(empty($storeAddress) OR empty($userAddress)){
-          //abort(404, "Please check your shipping address.");
+          abort(404, "Please check your shipping address.");
       }
       $store_address = "$storeAddress->address $storeAddress->city, $storeAddress->state, $storeAddress->country";
       $customer_address = "$userAddress->address $userAddress->city, $userAddress->state, $userAddress->country";
@@ -955,7 +955,12 @@ if (!function_exists("distance_matrix")) {
       curl_close($ch);
       $response = json_decode($result);
       if($response->status == "OK"){
-          return str_replace(' mi', '', $response->rows[0]->elements[0]->distance->text);
+          $cost_per_mile = str_replace(' mi', '', $response->rows[0]->elements[0]->distance->text);
+          if(null != $product_price){
+            $cost_per_mile = $cost_per_mile * $product_price;
+          }
+
+          return $cost_per_mile;
       }
       return 0;
    }

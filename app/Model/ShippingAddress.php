@@ -9,4 +9,6 @@ class ShippingAddress extends Model
     protected $casts = [
         'customer_id' => 'integer',
     ];
+
+    protected $guarded = [];
 }

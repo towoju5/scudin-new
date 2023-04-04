@@ -10,7 +10,6 @@ $total_tax = 0;
 $total_shipping_cost = 0;
 $total_discount_on_product = 0;
 $_msg = "";
-$total_shipping_cost = 0;
 
 if (session()->has('cart') && count(session()->get('cart')) > 0) :
 foreach (session('cart') as $key => $carty) :
@@ -331,11 +330,11 @@ if (auth('customer')->check()) {
             <div class="col-md-12" style="display: flex">
               <ul class="donate-now">
                 <li>
-                  <input type="radio" id="home" name="addressAs" value="home" />
+                  <input type="radio" id="home" required name="addressAs" value="home" />
                   <label for="home" class="component">{{ __('Home')}}</label>
                 </li>
                 <li>
-                  <input type="radio" id="office" name="addressAs" value="office" />
+                  <input type="radio" required id="office" name="addressAs" value="office" />
                   <label for="office" class="component">{{ __('Office')}}</label>
                 </li>
 
@@ -352,7 +351,7 @@ if (auth('customer')->check()) {
                   </div>
                   <div class="form-group col-md-6">
                     <label for="address">{{ __('address')}}</label>
-                    <input class="form-control" type="text" id="address" onfocus="initialize(this.id)" name="address"
+                    <input class="own_address form-control" type="text" id="address" onfocus="initialize(this.id)" name="address"
                       required>
                   </div>
                   <div id="map"></div>
@@ -364,33 +363,289 @@ if (auth('customer')->check()) {
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="address-city">{{ __('City')}}</label>
-                    <input class="form-control" type="text" id="address-city" name="city" required>
+                    <input class="city form-control" type="text" id="address-city" name="city" required>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="zip">{{ __('zip_code')}}</label>
-                    <input class="form-control" type="number" id="zip" name="zip" required>
+                    <input class="zip_code form-control" type="number" id="zip" name="zip" required>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
                     <label for="state">{{ __('State')}}</label>
-                    <input type="text" class="form-control" id="state" name="state" placeholder="" required>
+                    <input type="text" class="own_state form-control" id="state" name="state" placeholder="" required>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="country">{{ __('Country')}}</label>
-                    <input type="text" class="form-control" id="country" name="country" placeholder="" required>
+                    {{-- <input type="text" class="own_country form-control" id="country" name="country" placeholder="" required> --}}
+                    <select class="own_country form-control" id="country" name="country">
+                      <option>select country</option>
+                      <option value="AF">Afghanistan</option>
+                      <option value="AX">Aland Islands</option>
+                      <option value="AL">Albania</option>
+                      <option value="DZ">Algeria</option>
+                      <option value="AS">American Samoa</option>
+                      <option value="AD">Andorra</option>
+                      <option value="AO">Angola</option>
+                      <option value="AI">Anguilla</option>
+                      <option value="AQ">Antarctica</option>
+                      <option value="AG">Antigua and Barbuda</option>
+                      <option value="AR">Argentina</option>
+                      <option value="AM">Armenia</option>
+                      <option value="AW">Aruba</option>
+                      <option value="AU">Australia</option>
+                      <option value="AT">Austria</option>
+                      <option value="AZ">Azerbaijan</option>
+                      <option value="BS">Bahamas</option>
+                      <option value="BH">Bahrain</option>
+                      <option value="BD">Bangladesh</option>
+                      <option value="BB">Barbados</option>
+                      <option value="BY">Belarus</option>
+                      <option value="BE">Belgium</option>
+                      <option value="BZ">Belize</option>
+                      <option value="BJ">Benin</option>
+                      <option value="BM">Bermuda</option>
+                      <option value="BT">Bhutan</option>
+                      <option value="BO">Bolivia</option>
+                      <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                      <option value="BA">Bosnia and Herzegovina</option>
+                      <option value="BW">Botswana</option>
+                      <option value="BV">Bouvet Island</option>
+                      <option value="BR">Brazil</option>
+                      <option value="IO">British Indian Ocean Territory</option>
+                      <option value="BN">Brunei Darussalam</option>
+                      <option value="BG">Bulgaria</option>
+                      <option value="BF">Burkina Faso</option>
+                      <option value="BI">Burundi</option>
+                      <option value="KH">Cambodia</option>
+                      <option value="CM">Cameroon</option>
+                      <option value="CA">Canada</option>
+                      <option value="CV">Cape Verde</option>
+                      <option value="KY">Cayman Islands</option>
+                      <option value="CF">Central African Republic</option>
+                      <option value="TD">Chad</option>
+                      <option value="CL">Chile</option>
+                      <option value="CN">China</option>
+                      <option value="CX">Christmas Island</option>
+                      <option value="CC">Cocos (Keeling) Islands</option>
+                      <option value="CO">Colombia</option>
+                      <option value="KM">Comoros</option>
+                      <option value="CG">Congo</option>
+                      <option value="CD">Congo, Democratic Republic of the Congo</option>
+                      <option value="CK">Cook Islands</option>
+                      <option value="CR">Costa Rica</option>
+                      <option value="CI">Cote D'Ivoire</option>
+                      <option value="HR">Croatia</option>
+                      <option value="CU">Cuba</option>
+                      <option value="CW">Curacao</option>
+                      <option value="CY">Cyprus</option>
+                      <option value="CZ">Czech Republic</option>
+                      <option value="DK">Denmark</option>
+                      <option value="DJ">Djibouti</option>
+                      <option value="DM">Dominica</option>
+                      <option value="DO">Dominican Republic</option>
+                      <option value="EC">Ecuador</option>
+                      <option value="EG">Egypt</option>
+                      <option value="SV">El Salvador</option>
+                      <option value="GQ">Equatorial Guinea</option>
+                      <option value="ER">Eritrea</option>
+                      <option value="EE">Estonia</option>
+                      <option value="ET">Ethiopia</option>
+                      <option value="FK">Falkland Islands (Malvinas)</option>
+                      <option value="FO">Faroe Islands</option>
+                      <option value="FJ">Fiji</option>
+                      <option value="FI">Finland</option>
+                      <option value="FR">France</option>
+                      <option value="GF">French Guiana</option>
+                      <option value="PF">French Polynesia</option>
+                      <option value="TF">French Southern Territories</option>
+                      <option value="GA">Gabon</option>
+                      <option value="GM">Gambia</option>
+                      <option value="GE">Georgia</option>
+                      <option value="DE">Germany</option>
+                      <option value="GH">Ghana</option>
+                      <option value="GI">Gibraltar</option>
+                      <option value="GR">Greece</option>
+                      <option value="GL">Greenland</option>
+                      <option value="GD">Grenada</option>
+                      <option value="GP">Guadeloupe</option>
+                      <option value="GU">Guam</option>
+                      <option value="GT">Guatemala</option>
+                      <option value="GG">Guernsey</option>
+                      <option value="GN">Guinea</option>
+                      <option value="GW">Guinea-Bissau</option>
+                      <option value="GY">Guyana</option>
+                      <option value="HT">Haiti</option>
+                      <option value="HM">Heard Island and Mcdonald Islands</option>
+                      <option value="VA">Holy See (Vatican City State)</option>
+                      <option value="HN">Honduras</option>
+                      <option value="HK">Hong Kong</option>
+                      <option value="HU">Hungary</option>
+                      <option value="IS">Iceland</option>
+                      <option value="IN">India</option>
+                      <option value="ID">Indonesia</option>
+                      <option value="IR">Iran, Islamic Republic of</option>
+                      <option value="IQ">Iraq</option>
+                      <option value="IE">Ireland</option>
+                      <option value="IM">Isle of Man</option>
+                      <option value="IL">Israel</option>
+                      <option value="IT">Italy</option>
+                      <option value="JM">Jamaica</option>
+                      <option value="JP">Japan</option>
+                      <option value="JE">Jersey</option>
+                      <option value="JO">Jordan</option>
+                      <option value="KZ">Kazakhstan</option>
+                      <option value="KE">Kenya</option>
+                      <option value="KI">Kiribati</option>
+                      <option value="KP">Korea, Democratic People's Republic of</option>
+                      <option value="KR">Korea, Republic of</option>
+                      <option value="XK">Kosovo</option>
+                      <option value="KW">Kuwait</option>
+                      <option value="KG">Kyrgyzstan</option>
+                      <option value="LA">Lao People's Democratic Republic</option>
+                      <option value="LV">Latvia</option>
+                      <option value="LB">Lebanon</option>
+                      <option value="LS">Lesotho</option>
+                      <option value="LR">Liberia</option>
+                      <option value="LY">Libyan Arab Jamahiriya</option>
+                      <option value="LI">Liechtenstein</option>
+                      <option value="LT">Lithuania</option>
+                      <option value="LU">Luxembourg</option>
+                      <option value="MO">Macao</option>
+                      <option value="MK">Macedonia, the Former Yugoslav Republic of</option>
+                      <option value="MG">Madagascar</option>
+                      <option value="MW">Malawi</option>
+                      <option value="MY">Malaysia</option>
+                      <option value="MV">Maldives</option>
+                      <option value="ML">Mali</option>
+                      <option value="MT">Malta</option>
+                      <option value="MH">Marshall Islands</option>
+                      <option value="MQ">Martinique</option>
+                      <option value="MR">Mauritania</option>
+                      <option value="MU">Mauritius</option>
+                      <option value="YT">Mayotte</option>
+                      <option value="MX">Mexico</option>
+                      <option value="FM">Micronesia, Federated States of</option>
+                      <option value="MD">Moldova, Republic of</option>
+                      <option value="MC">Monaco</option>
+                      <option value="MN">Mongolia</option>
+                      <option value="ME">Montenegro</option>
+                      <option value="MS">Montserrat</option>
+                      <option value="MA">Morocco</option>
+                      <option value="MZ">Mozambique</option>
+                      <option value="MM">Myanmar</option>
+                      <option value="NA">Namibia</option>
+                      <option value="NR">Nauru</option>
+                      <option value="NP">Nepal</option>
+                      <option value="NL">Netherlands</option>
+                      <option value="AN">Netherlands Antilles</option>
+                      <option value="NC">New Caledonia</option>
+                      <option value="NZ">New Zealand</option>
+                      <option value="NI">Nicaragua</option>
+                      <option value="NE">Niger</option>
+                      <option value="NG">Nigeria</option>
+                      <option value="NU">Niue</option>
+                      <option value="NF">Norfolk Island</option>
+                      <option value="MP">Northern Mariana Islands</option>
+                      <option value="NO">Norway</option>
+                      <option value="OM">Oman</option>
+                      <option value="PK">Pakistan</option>
+                      <option value="PW">Palau</option>
+                      <option value="PS">Palestinian Territory, Occupied</option>
+                      <option value="PA">Panama</option>
+                      <option value="PG">Papua New Guinea</option>
+                      <option value="PY">Paraguay</option>
+                      <option value="PE">Peru</option>
+                      <option value="PH">Philippines</option>
+                      <option value="PN">Pitcairn</option>
+                      <option value="PL">Poland</option>
+                      <option value="PT">Portugal</option>
+                      <option value="PR">Puerto Rico</option>
+                      <option value="QA">Qatar</option>
+                      <option value="RE">Reunion</option>
+                      <option value="RO">Romania</option>
+                      <option value="RU">Russian Federation</option>
+                      <option value="RW">Rwanda</option>
+                      <option value="BL">Saint Barthelemy</option>
+                      <option value="SH">Saint Helena</option>
+                      <option value="KN">Saint Kitts and Nevis</option>
+                      <option value="LC">Saint Lucia</option>
+                      <option value="MF">Saint Martin</option>
+                      <option value="PM">Saint Pierre and Miquelon</option>
+                      <option value="VC">Saint Vincent and the Grenadines</option>
+                      <option value="WS">Samoa</option>
+                      <option value="SM">San Marino</option>
+                      <option value="ST">Sao Tome and Principe</option>
+                      <option value="SA">Saudi Arabia</option>
+                      <option value="SN">Senegal</option>
+                      <option value="RS">Serbia</option>
+                      <option value="CS">Serbia and Montenegro</option>
+                      <option value="SC">Seychelles</option>
+                      <option value="SL">Sierra Leone</option>
+                      <option value="SG">Singapore</option>
+                      <option value="SX">Sint Maarten</option>
+                      <option value="SK">Slovakia</option>
+                      <option value="SI">Slovenia</option>
+                      <option value="SB">Solomon Islands</option>
+                      <option value="SO">Somalia</option>
+                      <option value="ZA">South Africa</option>
+                      <option value="GS">South Georgia and the South Sandwich Islands</option>
+                      <option value="SS">South Sudan</option>
+                      <option value="ES">Spain</option>
+                      <option value="LK">Sri Lanka</option>
+                      <option value="SD">Sudan</option>
+                      <option value="SR">Suriname</option>
+                      <option value="SJ">Svalbard and Jan Mayen</option>
+                      <option value="SZ">Swaziland</option>
+                      <option value="SE">Sweden</option>
+                      <option value="CH">Switzerland</option>
+                      <option value="SY">Syrian Arab Republic</option>
+                      <option value="TW">Taiwan, Province of China</option>
+                      <option value="TJ">Tajikistan</option>
+                      <option value="TZ">Tanzania, United Republic of</option>
+                      <option value="TH">Thailand</option>
+                      <option value="TL">Timor-Leste</option>
+                      <option value="TG">Togo</option>
+                      <option value="TK">Tokelau</option>
+                      <option value="TO">Tonga</option>
+                      <option value="TT">Trinidad and Tobago</option>
+                      <option value="TN">Tunisia</option>
+                      <option value="TR">Turkey</option>
+                      <option value="TM">Turkmenistan</option>
+                      <option value="TC">Turks and Caicos Islands</option>
+                      <option value="TV">Tuvalu</option>
+                      <option value="UG">Uganda</option>
+                      <option value="UA">Ukraine</option>
+                      <option value="AE">United Arab Emirates</option>
+                      <option value="GB">United Kingdom</option>
+                      <option value="US">United States</option>
+                      <option value="UM">United States Minor Outlying Islands</option>
+                      <option value="UY">Uruguay</option>
+                      <option value="UZ">Uzbekistan</option>
+                      <option value="VU">Vanuatu</option>
+                      <option value="VE">Venezuela</option>
+                      <option value="VN">Viet Nam</option>
+                      <option value="VG">Virgin Islands, British</option>
+                      <option value="VI">Virgin Islands, U.s.</option>
+                      <option value="WF">Wallis and Futuna</option>
+                      <option value="EH">Western Sahara</option>
+                      <option value="YE">Yemen</option>
+                      <option value="ZM">Zambia</option>
+                      <option value="ZW">Zimbabwe</option>
+                    </select>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-12">
                     <label for="firstName">{{ __('Phone')}}</label>
-                    <input class="form-control" type="text" id="phone" name="phone" required>
+                    <input class="phone form-control" type="text" id="phone" name="phone" required>
                   </div>
                 </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="$('#shippingAddressModal').modal('hide')" data-dismiss="modal">{{ __('close')}}</button>
-                <button type="submit" class="btn btn-primary">{{ __('Add')}} {{ __('Informations')}} </button>
+                <button type="button" id="validateAddr" onclick="validateAddress()" class="validateAddr btn btn-primary">{{__('validate')}} {{__('address')}}</button>
+                <button type="submit" class="addressUpdate btn btn-primary" hidden >{{ __('Save')}} </button>
               </div>
             </div>
           </form>
@@ -435,28 +690,282 @@ if (auth('customer')->check()) {
                 </div>
                 <div class="form-group col-md-6">
                   <label for="own_address">{{ __('address')}}</label>
-                  <input class="form-control" type="text" onfocus="initialize(this.id)" id="own_address" name="address" value="{{$shipping_address->address}}" required>
+                  <input class="form-control own_address" type="text" onfocus="initialize(this.id)" id="own_address" name="address" value="{{$shipping_address->address}}" required>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="city">{{ __('City')}}</label>
-
-                  <input class="form-control" type="text" id="city" name="city" value="{{$shipping_address->city}}" required>
+                  <input class="form-control" type="hidden" id="update_shipping_id" name="city" value="{{$shipping_address->id}}" required>
+                  <input class="city form-control" type="text" id="city" name="city" value="{{$shipping_address->city}}" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="zip_code">{{ __('zip_code')}}</label>
-                  <input class="form-control" type="number" id="zip_code" name="zip" value="{{$shipping_address->zip}}" required>
+                  <input class="zip_code form-control" type="number" id="zip_code" name="zip" value="{{$shipping_address->zip}}" required>
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="own_state">{{ __('State')}}</label>
-                  <input type="text" class="form-control" name="state" value="{{ $shipping_address->state }}" id="own_state" placeholder="" required>
+                  <input type="text" class="own_state form-control" name="state" value="{{ $shipping_address->state }}" id="own_state" placeholder="" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="own_country">{{ __('Country')}}</label>
-                  <input type="text" class="form-control" id="own_country" name="country" value="{{ $shipping_address->country }}" placeholder="" required>
+                  <select class="own_country form-control" id="own_country" name="country">
+                    <option>select country</option>
+                    <option <?php if($shipping_address->country == "AF"){ echo "selected"; } ?>  value="AF">Afghanistan</option>
+                    <option <?php if($shipping_address->country == "AX"){ echo "selected"; } ?>  value="AX">Aland Islands</option>
+                    <option <?php if($shipping_address->country == "AL"){ echo "selected"; } ?>  value="AL">Albania</option>
+                    <option <?php if($shipping_address->country == "DZ"){ echo "selected"; } ?>  value="DZ">Algeria</option>
+                    <option <?php if($shipping_address->country == "AS"){ echo "selected"; } ?>  value="AS">American Samoa</option>
+                    <option <?php if($shipping_address->country == "AD"){ echo "selected"; } ?>  value="AD">Andorra</option>
+                    <option <?php if($shipping_address->country == "AO"){ echo "selected"; } ?>  value="AO">Angola</option>
+                    <option <?php if($shipping_address->country == "AI"){ echo "selected"; } ?>  value="AI">Anguilla</option>
+                    <option <?php if($shipping_address->country == "AQ"){ echo "selected"; } ?>  value="AQ">Antarctica</option>
+                    <option <?php if($shipping_address->country == "AG"){ echo "selected"; } ?>  value="AG">Antigua and Barbuda</option>
+                    <option <?php if($shipping_address->country == "AR"){ echo "selected"; } ?>  value="AR">Argentina</option>
+                    <option <?php if($shipping_address->country == "AM"){ echo "selected"; } ?>  value="AM">Armenia</option>
+                    <option <?php if($shipping_address->country == "AW"){ echo "selected"; } ?>  value="AW">Aruba</option>
+                    <option <?php if($shipping_address->country == "AU"){ echo "selected"; } ?>  value="AU">Australia</option>
+                    <option <?php if($shipping_address->country == "AT"){ echo "selected"; } ?>  value="AT">Austria</option>
+                    <option <?php if($shipping_address->country == "AZ"){ echo "selected"; } ?>  value="AZ">Azerbaijan</option>
+                    <option <?php if($shipping_address->country == "BS"){ echo "selected"; } ?>  value="BS">Bahamas</option>
+                    <option <?php if($shipping_address->country == "BH"){ echo "selected"; } ?>  value="BH">Bahrain</option>
+                    <option <?php if($shipping_address->country == "BD"){ echo "selected"; } ?>  value="BD">Bangladesh</option>
+                    <option <?php if($shipping_address->country == "BB"){ echo "selected"; } ?>  value="BB">Barbados</option>
+                    <option <?php if($shipping_address->country == "BY"){ echo "selected"; } ?>  value="BY">Belarus</option>
+                    <option <?php if($shipping_address->country == "BE"){ echo "selected"; } ?>  value="BE">Belgium</option>
+                    <option <?php if($shipping_address->country == "BZ"){ echo "selected"; } ?>  value="BZ">Belize</option>
+                    <option <?php if($shipping_address->country == "BJ"){ echo "selected"; } ?>  value="BJ">Benin</option>
+                    <option <?php if($shipping_address->country == "BM"){ echo "selected"; } ?>  value="BM">Bermuda</option>
+                    <option <?php if($shipping_address->country == "BT"){ echo "selected"; } ?>  value="BT">Bhutan</option>
+                    <option <?php if($shipping_address->country == "BO"){ echo "selected"; } ?>  value="BO">Bolivia</option>
+                    <option <?php if($shipping_address->country == "BQ"){ echo "selected"; } ?>  value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                    <option <?php if($shipping_address->country == "BA"){ echo "selected"; } ?>  value="BA">Bosnia and Herzegovina</option>
+                    <option <?php if($shipping_address->country == "BW"){ echo "selected"; } ?>  value="BW">Botswana</option>
+                    <option <?php if($shipping_address->country == "BV"){ echo "selected"; } ?>  value="BV">Bouvet Island</option>
+                    <option <?php if($shipping_address->country == "BR"){ echo "selected"; } ?>  value="BR">Brazil</option>
+                    <option <?php if($shipping_address->country == "IO"){ echo "selected"; } ?>  value="IO">British Indian Ocean Territory</option>
+                    <option <?php if($shipping_address->country == "BN"){ echo "selected"; } ?>  value="BN">Brunei Darussalam</option>
+                    <option <?php if($shipping_address->country == "BG"){ echo "selected"; } ?>  value="BG">Bulgaria</option>
+                    <option <?php if($shipping_address->country == "BF"){ echo "selected"; } ?>  value="BF">Burkina Faso</option>
+                    <option <?php if($shipping_address->country == "BI"){ echo "selected"; } ?>  value="BI">Burundi</option>
+                    <option <?php if($shipping_address->country == "KH"){ echo "selected"; } ?>  value="KH">Cambodia</option>
+                    <option <?php if($shipping_address->country == "CM"){ echo "selected"; } ?>  value="CM">Cameroon</option>
+                    <option <?php if($shipping_address->country == "CA"){ echo "selected"; } ?>  value="CA">Canada</option>
+                    <option <?php if($shipping_address->country == "CV"){ echo "selected"; } ?>  value="CV">Cape Verde</option>
+                    <option <?php if($shipping_address->country == "KY"){ echo "selected"; } ?>  value="KY">Cayman Islands</option>
+                    <option <?php if($shipping_address->country == "CF"){ echo "selected"; } ?>  value="CF">Central African Republic</option>
+                    <option <?php if($shipping_address->country == "TD"){ echo "selected"; } ?>  value="TD">Chad</option>
+                    <option <?php if($shipping_address->country == "CL"){ echo "selected"; } ?>  value="CL">Chile</option>
+                    <option <?php if($shipping_address->country == "CN"){ echo "selected"; } ?>  value="CN">China</option>
+                    <option <?php if($shipping_address->country == "CX"){ echo "selected"; } ?>  value="CX">Christmas Island</option>
+                    <option <?php if($shipping_address->country == "CC"){ echo "selected"; } ?>  value="CC">Cocos (Keeling) Islands</option>
+                    <option <?php if($shipping_address->country == "CO"){ echo "selected"; } ?>  value="CO">Colombia</option>
+                    <option <?php if($shipping_address->country == "KM"){ echo "selected"; } ?>  value="KM">Comoros</option>
+                    <option <?php if($shipping_address->country == "CG"){ echo "selected"; } ?>  value="CG">Congo</option>
+                    <option <?php if($shipping_address->country == "CD"){ echo "selected"; } ?>  value="CD">Congo, Democratic Republic of the Congo</option>
+                    <option <?php if($shipping_address->country == "CK"){ echo "selected"; } ?>  value="CK">Cook Islands</option>
+                    <option <?php if($shipping_address->country == "CR"){ echo "selected"; } ?>  value="CR">Costa Rica</option>
+                    <option <?php if($shipping_address->country == "CI"){ echo "selected"; } ?>  value="CI">Cote D'Ivoire</option>
+                    <option <?php if($shipping_address->country == "HR"){ echo "selected"; } ?>  value="HR">Croatia</option>
+                    <option <?php if($shipping_address->country == "CU"){ echo "selected"; } ?>  value="CU">Cuba</option>
+                    <option <?php if($shipping_address->country == "CW"){ echo "selected"; } ?>  value="CW">Curacao</option>
+                    <option <?php if($shipping_address->country == "CY"){ echo "selected"; } ?>  value="CY">Cyprus</option>
+                    <option <?php if($shipping_address->country == "CZ"){ echo "selected"; } ?>  value="CZ">Czech Republic</option>
+                    <option <?php if($shipping_address->country == "DK"){ echo "selected"; } ?>  value="DK">Denmark</option>
+                    <option <?php if($shipping_address->country == "DJ"){ echo "selected"; } ?>  value="DJ">Djibouti</option>
+                    <option <?php if($shipping_address->country == "DM"){ echo "selected"; } ?>  value="DM">Dominica</option>
+                    <option <?php if($shipping_address->country == "DO"){ echo "selected"; } ?>  value="DO">Dominican Republic</option>
+                    <option <?php if($shipping_address->country == "EC"){ echo "selected"; } ?>  value="EC">Ecuador</option>
+                    <option <?php if($shipping_address->country == "EG"){ echo "selected"; } ?>  value="EG">Egypt</option>
+                    <option <?php if($shipping_address->country == "SV"){ echo "selected"; } ?>  value="SV">El Salvador</option>
+                    <option <?php if($shipping_address->country == "GQ"){ echo "selected"; } ?>  value="GQ">Equatorial Guinea</option>
+                    <option <?php if($shipping_address->country == "ER"){ echo "selected"; } ?>  value="ER">Eritrea</option>
+                    <option <?php if($shipping_address->country == "EE"){ echo "selected"; } ?>  value="EE">Estonia</option>
+                    <option <?php if($shipping_address->country == "ET"){ echo "selected"; } ?>  value="ET">Ethiopia</option>
+                    <option <?php if($shipping_address->country == "FK"){ echo "selected"; } ?>  value="FK">Falkland Islands (Malvinas)</option>
+                    <option <?php if($shipping_address->country == "FO"){ echo "selected"; } ?>  value="FO">Faroe Islands</option>
+                    <option <?php if($shipping_address->country == "FJ"){ echo "selected"; } ?>  value="FJ">Fiji</option>
+                    <option <?php if($shipping_address->country == "FI"){ echo "selected"; } ?>  value="FI">Finland</option>
+                    <option <?php if($shipping_address->country == "FR"){ echo "selected"; } ?>  value="FR">France</option>
+                    <option <?php if($shipping_address->country == "GF"){ echo "selected"; } ?>  value="GF">French Guiana</option>
+                    <option <?php if($shipping_address->country == "PF"){ echo "selected"; } ?>  value="PF">French Polynesia</option>
+                    <option <?php if($shipping_address->country == "TF"){ echo "selected"; } ?>  value="TF">French Southern Territories</option>
+                    <option <?php if($shipping_address->country == "GA"){ echo "selected"; } ?>  value="GA">Gabon</option>
+                    <option <?php if($shipping_address->country == "GM"){ echo "selected"; } ?>  value="GM">Gambia</option>
+                    <option <?php if($shipping_address->country == "GE"){ echo "selected"; } ?>  value="GE">Georgia</option>
+                    <option <?php if($shipping_address->country == "DE"){ echo "selected"; } ?>  value="DE">Germany</option>
+                    <option <?php if($shipping_address->country == "GH"){ echo "selected"; } ?>  value="GH">Ghana</option>
+                    <option <?php if($shipping_address->country == "GI"){ echo "selected"; } ?>  value="GI">Gibraltar</option>
+                    <option <?php if($shipping_address->country == "GR"){ echo "selected"; } ?>  value="GR">Greece</option>
+                    <option <?php if($shipping_address->country == "GL"){ echo "selected"; } ?>  value="GL">Greenland</option>
+                    <option <?php if($shipping_address->country == "GD"){ echo "selected"; } ?>  value="GD">Grenada</option>
+                    <option <?php if($shipping_address->country == "GP"){ echo "selected"; } ?>  value="GP">Guadeloupe</option>
+                    <option <?php if($shipping_address->country == "GU"){ echo "selected"; } ?>  value="GU">Guam</option>
+                    <option <?php if($shipping_address->country == "GT"){ echo "selected"; } ?>  value="GT">Guatemala</option>
+                    <option <?php if($shipping_address->country == "GG"){ echo "selected"; } ?>  value="GG">Guernsey</option>
+                    <option <?php if($shipping_address->country == "GN"){ echo "selected"; } ?>  value="GN">Guinea</option>
+                    <option <?php if($shipping_address->country == "GW"){ echo "selected"; } ?>  value="GW">Guinea-Bissau</option>
+                    <option <?php if($shipping_address->country == "GY"){ echo "selected"; } ?>  value="GY">Guyana</option>
+                    <option <?php if($shipping_address->country == "HT"){ echo "selected"; } ?>  value="HT">Haiti</option>
+                    <option <?php if($shipping_address->country == "HM"){ echo "selected"; } ?>  value="HM">Heard Island and Mcdonald Islands</option>
+                    <option <?php if($shipping_address->country == "VA"){ echo "selected"; } ?>  value="VA">Holy See (Vatican City State)</option>
+                    <option <?php if($shipping_address->country == "HN"){ echo "selected"; } ?>  value="HN">Honduras</option>
+                    <option <?php if($shipping_address->country == "HK"){ echo "selected"; } ?>  value="HK">Hong Kong</option>
+                    <option <?php if($shipping_address->country == "HU"){ echo "selected"; } ?>  value="HU">Hungary</option>
+                    <option <?php if($shipping_address->country == "IS"){ echo "selected"; } ?>  value="IS">Iceland</option>
+                    <option <?php if($shipping_address->country == "IN"){ echo "selected"; } ?>  value="IN">India</option>
+                    <option <?php if($shipping_address->country == "ID"){ echo "selected"; } ?>  value="ID">Indonesia</option>
+                    <option <?php if($shipping_address->country == "IR"){ echo "selected"; } ?>  value="IR">Iran, Islamic Republic of</option>
+                    <option <?php if($shipping_address->country == "IQ"){ echo "selected"; } ?>  value="IQ">Iraq</option>
+                    <option <?php if($shipping_address->country == "IE"){ echo "selected"; } ?>  value="IE">Ireland</option>
+                    <option <?php if($shipping_address->country == "IM"){ echo "selected"; } ?>  value="IM">Isle of Man</option>
+                    <option <?php if($shipping_address->country == "IL"){ echo "selected"; } ?>  value="IL">Israel</option>
+                    <option <?php if($shipping_address->country == "IT"){ echo "selected"; } ?>  value="IT">Italy</option>
+                    <option <?php if($shipping_address->country == "JM"){ echo "selected"; } ?>  value="JM">Jamaica</option>
+                    <option <?php if($shipping_address->country == "JP"){ echo "selected"; } ?>  value="JP">Japan</option>
+                    <option <?php if($shipping_address->country == "JE"){ echo "selected"; } ?>  value="JE">Jersey</option>
+                    <option <?php if($shipping_address->country == "JO"){ echo "selected"; } ?>  value="JO">Jordan</option>
+                    <option <?php if($shipping_address->country == "KZ"){ echo "selected"; } ?>  value="KZ">Kazakhstan</option>
+                    <option <?php if($shipping_address->country == "KE"){ echo "selected"; } ?>  value="KE">Kenya</option>
+                    <option <?php if($shipping_address->country == "KI"){ echo "selected"; } ?>  value="KI">Kiribati</option>
+                    <option <?php if($shipping_address->country == "KP"){ echo "selected"; } ?>  value="KP">Korea, Democratic People's Republic of</option>
+                    <option <?php if($shipping_address->country == "KR"){ echo "selected"; } ?>  value="KR">Korea, Republic of</option>
+                    <option <?php if($shipping_address->country == "XK"){ echo "selected"; } ?>  value="XK">Kosovo</option>
+                    <option <?php if($shipping_address->country == "KW"){ echo "selected"; } ?>  value="KW">Kuwait</option>
+                    <option <?php if($shipping_address->country == "KG"){ echo "selected"; } ?>  value="KG">Kyrgyzstan</option>
+                    <option <?php if($shipping_address->country == "LA"){ echo "selected"; } ?>  value="LA">Lao People's Democratic Republic</option>
+                    <option <?php if($shipping_address->country == "LV"){ echo "selected"; } ?>  value="LV">Latvia</option>
+                    <option <?php if($shipping_address->country == "LB"){ echo "selected"; } ?>  value="LB">Lebanon</option>
+                    <option <?php if($shipping_address->country == "LS"){ echo "selected"; } ?>  value="LS">Lesotho</option>
+                    <option <?php if($shipping_address->country == "LR"){ echo "selected"; } ?>  value="LR">Liberia</option>
+                    <option <?php if($shipping_address->country == "LY"){ echo "selected"; } ?>  value="LY">Libyan Arab Jamahiriya</option>
+                    <option <?php if($shipping_address->country == "LI"){ echo "selected"; } ?>  value="LI">Liechtenstein</option>
+                    <option <?php if($shipping_address->country == "LT"){ echo "selected"; } ?>  value="LT">Lithuania</option>
+                    <option <?php if($shipping_address->country == "LU"){ echo "selected"; } ?>  value="LU">Luxembourg</option>
+                    <option <?php if($shipping_address->country == "MO"){ echo "selected"; } ?>  value="MO">Macao</option>
+                    <option <?php if($shipping_address->country == "MK"){ echo "selected"; } ?>  value="MK">Macedonia, the Former Yugoslav Republic of</option>
+                    <option <?php if($shipping_address->country == "MG"){ echo "selected"; } ?>  value="MG">Madagascar</option>
+                    <option <?php if($shipping_address->country == "MW"){ echo "selected"; } ?>  value="MW">Malawi</option>
+                    <option <?php if($shipping_address->country == "MY"){ echo "selected"; } ?>  value="MY">Malaysia</option>
+                    <option <?php if($shipping_address->country == "MV"){ echo "selected"; } ?>  value="MV">Maldives</option>
+                    <option <?php if($shipping_address->country == "ML"){ echo "selected"; } ?>  value="ML">Mali</option>
+                    <option <?php if($shipping_address->country == "MT"){ echo "selected"; } ?>  value="MT">Malta</option>
+                    <option <?php if($shipping_address->country == "MH"){ echo "selected"; } ?>  value="MH">Marshall Islands</option>
+                    <option <?php if($shipping_address->country == "MQ"){ echo "selected"; } ?>  value="MQ">Martinique</option>
+                    <option <?php if($shipping_address->country == "MR"){ echo "selected"; } ?>  value="MR">Mauritania</option>
+                    <option <?php if($shipping_address->country == "MU"){ echo "selected"; } ?>  value="MU">Mauritius</option>
+                    <option <?php if($shipping_address->country == "YT"){ echo "selected"; } ?>  value="YT">Mayotte</option>
+                    <option <?php if($shipping_address->country == "MX"){ echo "selected"; } ?>  value="MX">Mexico</option>
+                    <option <?php if($shipping_address->country == "FM"){ echo "selected"; } ?>  value="FM">Micronesia, Federated States of</option>
+                    <option <?php if($shipping_address->country == "MD"){ echo "selected"; } ?>  value="MD">Moldova, Republic of</option>
+                    <option <?php if($shipping_address->country == "MC"){ echo "selected"; } ?>  value="MC">Monaco</option>
+                    <option <?php if($shipping_address->country == "MN"){ echo "selected"; } ?>  value="MN">Mongolia</option>
+                    <option <?php if($shipping_address->country == "ME"){ echo "selected"; } ?>  value="ME">Montenegro</option>
+                    <option <?php if($shipping_address->country == "MS"){ echo "selected"; } ?>  value="MS">Montserrat</option>
+                    <option <?php if($shipping_address->country == "MA"){ echo "selected"; } ?>  value="MA">Morocco</option>
+                    <option <?php if($shipping_address->country == "MZ"){ echo "selected"; } ?>  value="MZ">Mozambique</option>
+                    <option <?php if($shipping_address->country == "MM"){ echo "selected"; } ?>  value="MM">Myanmar</option>
+                    <option <?php if($shipping_address->country == "NA"){ echo "selected"; } ?>  value="NA">Namibia</option>
+                    <option <?php if($shipping_address->country == "NR"){ echo "selected"; } ?>  value="NR">Nauru</option>
+                    <option <?php if($shipping_address->country == "NP"){ echo "selected"; } ?>  value="NP">Nepal</option>
+                    <option <?php if($shipping_address->country == "NL"){ echo "selected"; } ?>  value="NL">Netherlands</option>
+                    <option <?php if($shipping_address->country == "AN"){ echo "selected"; } ?>  value="AN">Netherlands Antilles</option>
+                    <option <?php if($shipping_address->country == "NC"){ echo "selected"; } ?>  value="NC">New Caledonia</option>
+                    <option <?php if($shipping_address->country == "NZ"){ echo "selected"; } ?>  value="NZ">New Zealand</option>
+                    <option <?php if($shipping_address->country == "NI"){ echo "selected"; } ?>  value="NI">Nicaragua</option>
+                    <option <?php if($shipping_address->country == "NE"){ echo "selected"; } ?>  value="NE">Niger</option>
+                    <option <?php if($shipping_address->country == "NG"){ echo "selected"; } ?>  value="NG">Nigeria</option>
+                    <option <?php if($shipping_address->country == "NU"){ echo "selected"; } ?>  value="NU">Niue</option>
+                    <option <?php if($shipping_address->country == "NF"){ echo "selected"; } ?>  value="NF">Norfolk Island</option>
+                    <option <?php if($shipping_address->country == "MP"){ echo "selected"; } ?>  value="MP">Northern Mariana Islands</option>
+                    <option <?php if($shipping_address->country == "NO"){ echo "selected"; } ?>  value="NO">Norway</option>
+                    <option <?php if($shipping_address->country == "OM"){ echo "selected"; } ?>  value="OM">Oman</option>
+                    <option <?php if($shipping_address->country == "PK"){ echo "selected"; } ?>  value="PK">Pakistan</option>
+                    <option <?php if($shipping_address->country == "PW"){ echo "selected"; } ?>  value="PW">Palau</option>
+                    <option <?php if($shipping_address->country == "PS"){ echo "selected"; } ?>  value="PS">Palestinian Territory, Occupied</option>
+                    <option <?php if($shipping_address->country == "PA"){ echo "selected"; } ?>  value="PA">Panama</option>
+                    <option <?php if($shipping_address->country == "PG"){ echo "selected"; } ?>  value="PG">Papua New Guinea</option>
+                    <option <?php if($shipping_address->country == "PY"){ echo "selected"; } ?>  value="PY">Paraguay</option>
+                    <option <?php if($shipping_address->country == "PE"){ echo "selected"; } ?>  value="PE">Peru</option>
+                    <option <?php if($shipping_address->country == "PH"){ echo "selected"; } ?>  value="PH">Philippines</option>
+                    <option <?php if($shipping_address->country == "PN"){ echo "selected"; } ?>  value="PN">Pitcairn</option>
+                    <option <?php if($shipping_address->country == "PL"){ echo "selected"; } ?>  value="PL">Poland</option>
+                    <option <?php if($shipping_address->country == "PT"){ echo "selected"; } ?>  value="PT">Portugal</option>
+                    <option <?php if($shipping_address->country == "PR"){ echo "selected"; } ?>  value="PR">Puerto Rico</option>
+                    <option <?php if($shipping_address->country == "QA"){ echo "selected"; } ?>  value="QA">Qatar</option>
+                    <option <?php if($shipping_address->country == "RE"){ echo "selected"; } ?>  value="RE">Reunion</option>
+                    <option <?php if($shipping_address->country == "RO"){ echo "selected"; } ?>  value="RO">Romania</option>
+                    <option <?php if($shipping_address->country == "RU"){ echo "selected"; } ?>  value="RU">Russian Federation</option>
+                    <option <?php if($shipping_address->country == "RW"){ echo "selected"; } ?>  value="RW">Rwanda</option>
+                    <option <?php if($shipping_address->country == "BL"){ echo "selected"; } ?>  value="BL">Saint Barthelemy</option>
+                    <option <?php if($shipping_address->country == "SH"){ echo "selected"; } ?>  value="SH">Saint Helena</option>
+                    <option <?php if($shipping_address->country == "KN"){ echo "selected"; } ?>  value="KN">Saint Kitts and Nevis</option>
+                    <option <?php if($shipping_address->country == "LC"){ echo "selected"; } ?>  value="LC">Saint Lucia</option>
+                    <option <?php if($shipping_address->country == "MF"){ echo "selected"; } ?>  value="MF">Saint Martin</option>
+                    <option <?php if($shipping_address->country == "PM"){ echo "selected"; } ?>  value="PM">Saint Pierre and Miquelon</option>
+                    <option <?php if($shipping_address->country == "VC"){ echo "selected"; } ?>  value="VC">Saint Vincent and the Grenadines</option>
+                    <option <?php if($shipping_address->country == "WS"){ echo "selected"; } ?>  value="WS">Samoa</option>
+                    <option <?php if($shipping_address->country == "SM"){ echo "selected"; } ?>  value="SM">San Marino</option>
+                    <option <?php if($shipping_address->country == "ST"){ echo "selected"; } ?>  value="ST">Sao Tome and Principe</option>
+                    <option <?php if($shipping_address->country == "SA"){ echo "selected"; } ?>  value="SA">Saudi Arabia</option>
+                    <option <?php if($shipping_address->country == "SN"){ echo "selected"; } ?>  value="SN">Senegal</option>
+                    <option <?php if($shipping_address->country == "RS"){ echo "selected"; } ?>  value="RS">Serbia</option>
+                    <option <?php if($shipping_address->country == "CS"){ echo "selected"; } ?>  value="CS">Serbia and Montenegro</option>
+                    <option <?php if($shipping_address->country == "SC"){ echo "selected"; } ?>  value="SC">Seychelles</option>
+                    <option <?php if($shipping_address->country == "SL"){ echo "selected"; } ?>  value="SL">Sierra Leone</option>
+                    <option <?php if($shipping_address->country == "SG"){ echo "selected"; } ?>  value="SG">Singapore</option>
+                    <option <?php if($shipping_address->country == "SX"){ echo "selected"; } ?>  value="SX">Sint Maarten</option>
+                    <option <?php if($shipping_address->country == "SK"){ echo "selected"; } ?>  value="SK">Slovakia</option>
+                    <option <?php if($shipping_address->country == "SI"){ echo "selected"; } ?>  value="SI">Slovenia</option>
+                    <option <?php if($shipping_address->country == "SB"){ echo "selected"; } ?>  value="SB">Solomon Islands</option>
+                    <option <?php if($shipping_address->country == "SO"){ echo "selected"; } ?>  value="SO">Somalia</option>
+                    <option <?php if($shipping_address->country == "ZA"){ echo "selected"; } ?>  value="ZA">South Africa</option>
+                    <option <?php if($shipping_address->country == "GS"){ echo "selected"; } ?>  value="GS">South Georgia and the South Sandwich Islands</option>
+                    <option <?php if($shipping_address->country == "SS"){ echo "selected"; } ?>  value="SS">South Sudan</option>
+                    <option <?php if($shipping_address->country == "ES"){ echo "selected"; } ?>  value="ES">Spain</option>
+                    <option <?php if($shipping_address->country == "LK"){ echo "selected"; } ?>  value="LK">Sri Lanka</option>
+                    <option <?php if($shipping_address->country == "SD"){ echo "selected"; } ?>  value="SD">Sudan</option>
+                    <option <?php if($shipping_address->country == "SR"){ echo "selected"; } ?>  value="SR">Suriname</option>
+                    <option <?php if($shipping_address->country == "SJ"){ echo "selected"; } ?>  value="SJ">Svalbard and Jan Mayen</option>
+                    <option <?php if($shipping_address->country == "SZ"){ echo "selected"; } ?>  value="SZ">Swaziland</option>
+                    <option <?php if($shipping_address->country == "SE"){ echo "selected"; } ?>  value="SE">Sweden</option>
+                    <option <?php if($shipping_address->country == "CH"){ echo "selected"; } ?>  value="CH">Switzerland</option>
+                    <option <?php if($shipping_address->country == "SY"){ echo "selected"; } ?>  value="SY">Syrian Arab Republic</option>
+                    <option <?php if($shipping_address->country == "TW"){ echo "selected"; } ?>  value="TW">Taiwan, Province of China</option>
+                    <option <?php if($shipping_address->country == "TJ"){ echo "selected"; } ?>  value="TJ">Tajikistan</option>
+                    <option <?php if($shipping_address->country == "TZ"){ echo "selected"; } ?>  value="TZ">Tanzania, United Republic of</option>
+                    <option <?php if($shipping_address->country == "TH"){ echo "selected"; } ?>  value="TH">Thailand</option>
+                    <option <?php if($shipping_address->country == "TL"){ echo "selected"; } ?>  value="TL">Timor-Leste</option>
+                    <option <?php if($shipping_address->country == "TG"){ echo "selected"; } ?>  value="TG">Togo</option>
+                    <option <?php if($shipping_address->country == "TK"){ echo "selected"; } ?>  value="TK">Tokelau</option>
+                    <option <?php if($shipping_address->country == "TO"){ echo "selected"; } ?>  value="TO">Tonga</option>
+                    <option <?php if($shipping_address->country == "TT"){ echo "selected"; } ?>  value="TT">Trinidad and Tobago</option>
+                    <option <?php if($shipping_address->country == "TN"){ echo "selected"; } ?>  value="TN">Tunisia</option>
+                    <option <?php if($shipping_address->country == "TR"){ echo "selected"; } ?>  value="TR">Turkey</option>
+                    <option <?php if($shipping_address->country == "TM"){ echo "selected"; } ?>  value="TM">Turkmenistan</option>
+                    <option <?php if($shipping_address->country == "TC"){ echo "selected"; } ?>  value="TC">Turks and Caicos Islands</option>
+                    <option <?php if($shipping_address->country == "TV"){ echo "selected"; } ?>  value="TV">Tuvalu</option>
+                    <option <?php if($shipping_address->country == "UG"){ echo "selected"; } ?>  value="UG">Uganda</option>
+                    <option <?php if($shipping_address->country == "UA"){ echo "selected"; } ?>  value="UA">Ukraine</option>
+                    <option <?php if($shipping_address->country == "AE"){ echo "selected"; } ?>  value="AE">United Arab Emirates</option>
+                    <option <?php if($shipping_address->country == "GB"){ echo "selected"; } ?>  value="GB">United Kingdom</option>
+                    <option <?php if($shipping_address->country == "US"){ echo "selected"; } ?>  value="US">United States</option>
+                    <option <?php if($shipping_address->country == "UM"){ echo "selected"; } ?>  value="UM">United States Minor Outlying Islands</option>
+                    <option <?php if($shipping_address->country == "UY"){ echo "selected"; } ?>  value="UY">Uruguay</option>
+                    <option <?php if($shipping_address->country == "UZ"){ echo "selected"; } ?>  value="UZ">Uzbekistan</option>
+                    <option <?php if($shipping_address->country == "VU"){ echo "selected"; } ?>  value="VU">Vanuatu</option>
+                    <option <?php if($shipping_address->country == "VE"){ echo "selected"; } ?>  value="VE">Venezuela</option>
+                    <option <?php if($shipping_address->country == "VN"){ echo "selected"; } ?>  value="VN">Viet Nam</option>
+                    <option <?php if($shipping_address->country == "VG"){ echo "selected"; } ?>  value="VG">Virgin Islands, British</option>
+                    <option <?php if($shipping_address->country == "VI"){ echo "selected"; } ?>  value="VI">Virgin Islands, U.s.</option>
+                    <option <?php if($shipping_address->country == "WF"){ echo "selected"; } ?>  value="WF">Wallis and Futuna</option>
+                    <option <?php if($shipping_address->country == "EH"){ echo "selected"; } ?>  value="EH">Western Sahara</option>
+                    <option <?php if($shipping_address->country == "YE"){ echo "selected"; } ?>  value="YE">Yemen</option>
+                    <option <?php if($shipping_address->country == "ZM"){ echo "selected"; } ?>  value="ZM">Zambia</option>
+                    <option <?php if($shipping_address->country == "ZW"){ echo "selected"; } ?>  value="ZW">Zimbabwe</option>
+                  </select>
                 </div>
               </div>
               <div class="row">
@@ -466,8 +975,9 @@ if (auth('customer')->check()) {
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="closeB btn btn-secondary" data-dismiss="modal">{{ __('close')}}</button>
-                <button type="submit" class="btn btn-primary" id="addressUpdate" data-id="{{$shipping_address->id}}">{{ __('update')}} </button>
+                <button type="button" class="btn btn-secondary" onclick="$('#editAddress_{{$shipping_address->id}}').modal('hide')" data-dismiss="modal">{{ __('close')}}</button>
+                <button type="button" id="validateAddr" onclick="validateAddress()" class="validateAddr btn btn-primary">{{__('validate')}} {{__('address')}}</button>
+                <button type="submit" class="addressUpdate btn btn-primary" hidden id="addressUpdate" data-id="{{$shipping_address->id}}">{{ __('update')}} </button>
               </div>
             </form>
           </div>
@@ -633,6 +1143,37 @@ if (auth('customer')->check()) {
         }
     </script>
     <script>
+      function validateAddress() {
+          $(".validateAddr").empty().append("<i class='fas fa-spinner fa-pulse'></i> Validating...").attr('disabled', true);
+          $.ajax({
+              url: "{{route('address.validation')}}",
+              method: 'POST',
+              data: {
+                  address: $(".own_address").val(),
+                  country: $(".own_country").val(),
+                  city: $(".city").val(),
+                  state: $(".own_state").val(),
+                  postal: $(".zip_code").val(),
+                  _token: "{{ csrf_token() }}",
+                  id: $(".update_shipping_id").val(),
+              },
+              dataType: "JSON",
+              success: function(response) {
+                  if (response.status == 'success') {
+                      $(".validateAddr").hide();
+                      $(".addressUpdate").attr('hidden', false);
+                      $(".addressUpdate").show();
+                      $(".validateAddr").empty().append("Validate").attr('disabled', false);
+                      toastr.success(response.msg);
+                  } else {
+                      $(".validateAddr").empty().append("Validate").attr('disabled', false);
+                      toastr.error(response.msg);
+                  }
+              }
+          });
+      }
+  </script>
+    <script>
   $(document).ready(function() {
     $('.address_type_li').on('click', function(e) {
       // e.preventDefault();
@@ -675,7 +1216,8 @@ if (auth('customer')->check()) {
           city: city,
           state: state,
           country: country,
-          phone: phone
+          phone: phone,
+          _token: "{{ csrf_token() }}"
         },
         success: function() {
           toastr.success('Address Update Successfully.');
