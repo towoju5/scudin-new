@@ -14,7 +14,7 @@
     <section class="showcase2 p-1" style="background-image: url({{ asset('asset/Rectangle\ 89.png') }});">
         <div class="container">
             <div class="showcase2-tex my-5">
-                <h3>Sell on Scudin with Proven Ecommerce Technologies.Worldwide.</h3>
+                <h3 style="font-size: 48px;">Sell on Scudin with Proven<br> Ecommerce Technologies.<br> Reach Millions of customers <br>Worldwide.</h3>
                 <button class="btn btn-scudin px-5 my-4">Start Selling</button>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 <div class="col-lg-9">
                     <div class="row">
                         @foreach ($articles->take(2) as $article)
-                            <div class="col-lg-6 col-sm-12">
+                            <div class="col-md-6 col-sm-12">
                                 <div class="card">
                                     <a href="{{ route('blog.show', $article->slug) }}" title="{{ $article->title }}">
                                         <img src="{{ $article->blog_image }}" class="card-img-top" alt="..."
@@ -93,7 +93,7 @@
                                 <div class="card-body">
                                     <p class="card-title">{{ $article->title }}</p>
                                     <p class="card-text text-muted">
-                                        Content Summary <br />content summary
+                                        {{ $article->excerpt }}
                                     </p>
                                     <a href="{{ route('blog.show', $article->slug) }}" title="{{ $article->title }}">
                                         <small>
@@ -109,24 +109,26 @@
         </div>
     </section>
 
-    <section class="blog-trending my-5">
+<section class="blog-trending my-5">
         <div class="container">
             <div class="row">
+            @foreach($articles->skip(3)->take(1) as $article)
                 <div class="col-lg-4">
                     <div class="card-body">
                         <h2 class="card-title">
-                            My Popular and Trending Blog Title Is Here
+                            {{ $article->title}}
                         </h2>
                         <p class="card-text text-muted">
-                            Content Summary <br />content summary
+                            {{ $article->excerpt }}
                         </p>
-                        <a href="#" class="btn">Read in 5 munites</a>
+                        <a href="{{route('blog.show', $article->slug)}}" class="btn">{!! ucwords(reading_time($article->body)) !!}</a>
                     </div>
                 </div>
 
                 <div class="col-lg-8">
-                    <img src="{{ asset('asset/img.png') }}" alt="" class="img-fluid" style="width: 100%; height: 300px" />
+                    <img src="{{ $article->blog_image }}" alt="" class="img-fluid" style="width: 100%; height: 300px" />
                 </div>
+            @endforeach
             </div>
         </div>
     </section>

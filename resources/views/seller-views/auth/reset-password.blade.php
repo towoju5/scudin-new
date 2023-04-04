@@ -36,7 +36,7 @@
 					@endif
 					<!-- </div> -->
 				</div>
-				<form class="card-body needs-validation" novalidate method="POST" action="{{request('customer.auth.password-recovery')}}">
+				<form class="card-body needs-validation" novalidate method="POST" action="{{request('seller.auth.reset-password')}}">
 					@csrf
 					@honeypot
 					<div class="form-group" style="display: none">

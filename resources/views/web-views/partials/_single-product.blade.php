@@ -7,7 +7,7 @@
 <div class="row" style="pl-1">
   @foreach ($products as $product)
   @php($overallRating = \App\CPU\ProductManager::get_overall_rating($product->reviews))
-  <div class="product-card bg-white border p-1" style="width: {{$mWidth}}">
+  <div class="product-card bg-white border m-1" style="width: {{$mWidth}}">
       <a href="{{route('product',$product->slug)}}" title="{{ $product->name }}" class="product-image text-center">
           <img src="{{ asset($product->thumbnail) }}" alt="..." width="{{$imgWidth}}" />
       </a>

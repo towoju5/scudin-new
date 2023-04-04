@@ -1,0 +1,1 @@
+@include('auth.recover-password', ['link' => 'seller.auth.forgot-password', 'register' => 'shop.apply', 'reset' => '', 'social' => 0])

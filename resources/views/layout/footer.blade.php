@@ -15,18 +15,19 @@ $language = \App\CPU\Helpers::language_load();
 $categories = \App\CPU\CategoryManager::parents()
 ?>
 
-<section class="brand">
+<div class="mb-5"></div>
+<section class="brand d-none d-md-none d-lg-block">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-3">
           <a href="{{ url('/') }}">
-            <img src="{{ website_logo() }}" alt="logo" style="max-width:150px">
+            <img src="{{ website_logo() }}" alt="logo" style="max-width:80px">
           </a>
         </div>
         <div class="col-md-9 flag float-end">
           <div class="d-flex gap-2 float-end">
-            <img src="https://www.svgrepo.com/show/405569/flag-for-flag-nigeria.svg" height="50px" alt="Nigeria flag" class="ngn-flag">
-            <img src="https://www.svgrepo.com/show/248851/united-states.svg" height="50px" alt="USA flag" class="usa-flag">
+            <img src="https://www.svgrepo.com/show/405569/flag-for-flag-nigeria.svg" height="33px" alt="Nigeria flag" class="ngn-flag">
+            <img src="https://www.svgrepo.com/show/248851/united-states.svg" height="33px" alt="USA flag" class="usa-flag">
             <span><a class="dropdown-toggle pt-2 text-white" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 {{ $currency_code ."( $currency_symbol )" }}

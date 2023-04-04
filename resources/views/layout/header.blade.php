@@ -18,7 +18,7 @@
 
   <link rel="stylesheet" href="{{ asset('style.css') }}" />
 
-  <link rel="shortcut icon" href="{{ asset('asset/client3 2.png') }}" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="https://scudin.com/storage/app/public/company/1659752973_119.png">
   <title>@yield('title', "Scudin")</title>
   <link rel="stylesheet" href="{{ asset('app-assets/css/plugins/extensions/ext-component-sweet-alerts.css') }}">
   @stack('css')

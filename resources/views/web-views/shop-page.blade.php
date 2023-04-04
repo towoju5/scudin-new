@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<section class="showcase2" style="background: url('{{asset($seller->image) ?? null}}');">
+<section class="showcase2  d-none d-md-none d-lg-block" style="background: url('{{asset($seller->image) ?? null}}');">
     <div class="container">
         <div class="showcase2-text pt-4 pb-4">
             <h2>{{ ucwords($shop->name )}}</h3>

@@ -316,6 +316,9 @@ Route::get('logout', function(){
     return redirect()->to(url('/'));
 });
 
+Route::get('matrix', function(){
+    return distance_matrix(10, 3);
+});
 
 Route::fallback(function(){
     return abort(404);

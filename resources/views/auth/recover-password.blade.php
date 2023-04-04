@@ -39,7 +39,9 @@
         <div class="col-lg-12">
           <p class="card-text mb-2">Change your password in three easy steps. This helps to keep your new password secure.</p>
           <ol class="list-unstyled font-size-md">
-            <li><span class="text-primary mr-2"><i class="fa fa-asterisk" aria-hidden="true"></i>.</span>Fill in your email address below.</li>
+            <li><span class="text-primary mr-2">1.</span>{{__('Fill in your email address below')}}.</li>
+            <li><span class="text-primary mr-2">2.</span>{{__('We will send email you a temporary code')}}.</li>
+            <li><span class="text-primary mr-2">3.</span>{{__('Use the code to change your password on our secure website')}}.</li>
           </ol>
         </div>
         <form class="auth-login-form mt-2 pb-2" action="{{ route($link) }}" method="POST">

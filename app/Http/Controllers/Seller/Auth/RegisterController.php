@@ -27,15 +27,28 @@ class RegisterController extends Controller
 
         $this->validate($request, [
             'email' => 'required|unique:sellers',
-            // 'code' => 'required',
+            'g-recaptcha-response' => 'required',
             'password'=>'regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{9,150}$/'
         ],[
             'email.required' => "Email is required.",
             'email.unique' => "Email is already in use.",
             'password.min' => "Password must be minimum of 9 Alpha Numeric characters.",
-            'password.alpha_num' => "Password must contain atleast 1 lowercase & 1 uppercase 1 number (0-9) 1 Special Character (!@#$%^&*)"
+            'password.alpha_num' => "Password must contain atleast 1 lowercase & 1 uppercase 1 number (0-9) 1 Special Character (!@#$%^&*)",
+            'g-recaptcha-response.required' => "Please complete the recaptcha",
         ]);
 
+
+
+      $remoteip = $request->ip();
+      $response = $request->input('g-recaptcha-response');
+      $recaptcha_secret_key = "6LcPR_EkAAAAAGaK0-_x_a2ri72OQM2BRvJejh0f";
+      $url = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret_key&response=$response&remoteip=$remoteip");
+      $result = json_decode($url, true);
+
+      if($result['success'] != true OR $validator->fails()) {  
+            Toastr::success('Shop registration completed successfully!');
+            return redirect()->back();
+      }
         // if(session()->get('otp') != $request->code){
         //     Toastr::error('Please check your O.T.P');
         //     return back();

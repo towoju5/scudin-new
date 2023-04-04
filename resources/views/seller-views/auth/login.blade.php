@@ -1,1 +1,1 @@
-@include('auth.login', ['login' => 'seller.auth.login', 'register' => 'shop.apply', 'reset' => '', 'social' => 0])
+@include('auth.login', ['login' => 'seller.auth.login', 'register' => 'shop.apply', 'reset' => 'seller.auth.forgot-password', 'social' => 0])

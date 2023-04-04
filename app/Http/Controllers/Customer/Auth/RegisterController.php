@@ -44,6 +44,7 @@ class RegisterController extends Controller
             'password.required'  => 'The Password field is required.',
             'password.same'      => 'The Password and Confirm Password field must be the same.',
             'password.required_with' => 'The Confirm Password field is required.',
+            'g-recaptcha-response.required' => "Please complete the recaptcha",
         ]);
         
 

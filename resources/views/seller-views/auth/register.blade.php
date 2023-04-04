@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url('/') }}/app-assets/css/plugins/forms/form-wizard.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- END: Page CSS-->
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <style>
     /* Mark input boxes that gets an error on validation: */
     input.invalid {
@@ -185,7 +186,11 @@
                         </div>
                     </div>
                     <!-- </div> -->
-
+                    <div class="form-group d-flex flex-wrap justify-content-between">
+                       <div class="form-group mb-1">
+                          <div class="g-recaptcha" data-sitekey="6LcPR_EkAAAAANomjX1XF7TkbBJJxi3x6CAZhWhN"></div>
+                       </div>
+                    </div>
                     <div style="overflow:auto;">
                         <button onclick="_submit();" class="btn btn-primary btn-prev" type="submit" id="nextBtn">
                             <span class="align-middle d-sm-inline-block d-none"> Submit </span>

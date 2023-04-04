@@ -110,18 +110,16 @@ if (!function_exists('get_shipping_price_by_id')) {
          'length' => $length,
          'unit' => $unit,
       ];
-      // var_dump($tt);
-      // exit;
+      
       if (!empty($price->cost) && $price->cost < 1) {
          return round(($price->cost * $weight), 2);
       } else {
          // check if method is UPS or Fedex
          if ($price->method == 'fedex') {
-            $rate = getShippingRateFedEx($id, $weight, $height, $width, $length, $unit);
+            $rate = distance_matrix($id); //getShippingRateFedEx($id, $weight, $height, $width, $length, $unit);
             return round(($rate * $weight), 2);
          } elseif ($price->method == 'ups') {
-             return 0;
-            $rate = getShippingRateUps($id, $weight, $height, $width, $length, $unit);
+            $rate = distance_matrix($id); //$rate = getShippingRateUps($id, $weight, $height, $width, $length, $unit);
             return round((floatval($rate) * floatval($weight)), 2);
          }
          return 0;
@@ -926,10 +924,47 @@ if (!function_exists("validate_address")) {
    }
 }
 
+if (!function_exists("distance_matrix")) {
+   /**
+    * @param string $key, $newValue
+    */
+   // function distance_matrix($store_address, $customer_address)
+   function distance_matrix($method, $customer_address_id)
+   {
+      $user_address = $customer_address_id ?? auth('customer')->id();
+      $userAddress = DB::table('shipping_addresses')->find($user_address);
+      $storeAddress = ShippingMethod::find($method);
+
+      if(empty($storeAddress) OR empty($userAddress)){
+          //abort(404, "Please check your shipping address.");
+      }
+      $store_address = "$storeAddress->address $storeAddress->city, $storeAddress->state, $storeAddress->country";
+      $customer_address = "$userAddress->address $userAddress->city, $userAddress->state, $userAddress->country";
+      
+      //var_dump($store_address, $customer_address); exit;
+      
+      $ch = curl_init();
+      $url = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=".url_encode($store_address) ."&origins=".url_encode($customer_address)."&units=imperial&key=AIzaSyBY11q-8nzOjURB-VvDPO-LnqR1tEw8zRU";
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+      $result = curl_exec($ch);
+      if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+      }
+      curl_close($ch);
+      $response = json_decode($result);
+      if($response->status == "OK"){
+          return str_replace(' mi', '', $response->rows[0]->elements[0]->distance->text);
+      }
+      return 0;
+   }
+}
+
 if (!function_exists('getShippingRateFedEx')) {
    function getShippingRateFedEx($method, $weight = 150, $height = 10, $width = 10, $length = 10, $unit = 10)
    {
-      return 0;
+      return distance_matrix($method);
       $rateRequest = new ComplexType\RateRequest();
       $userAddress = DB::table('shipping_addresses')->find(request()->input('shipping_method_id'));
       $_method = ShippingMethod::find($method);
@@ -1020,6 +1055,7 @@ if (!function_exists('getShippingRateFedEx')) {
 if (!function_exists('getShippingRateUps')) {
    function getShippingRateUps($method, $weight = 150, $height = 10, $width = 10, $length = 10, $unit = 10)
    {
+       return distance_matrix($method);
       $accessKey = env("UPS_ACCESS_KEY");
       $userId = env("UPS_USER_ID");
       $password = env("UPS_PASSWORD");
@@ -1197,10 +1233,10 @@ if (!function_exists('getFinalPrice')) {
    {
       $new_collection = $collection->map(function ($item, $key) use (&$i) {
          if ($key == $i) {
-            // var_dump($item); exit;
             $product = Product::find($item['id']);
-            $_id = $item['shipping_method_id'];
-            $item['shipping_cost'] = get_shipping_price_by_id($_id, $product['weight'], $product['height'], $product['width'], $product['length'], $product['unit']);
+            $shipping_method = $item['shipping_method_id'];
+            $item['shipping_cost'] = distance_matrix($shipping_method);
+            // get_shipping_price_by_id($_id, $product['weight'], $product['height'], $product['width'], $product['length'], $product['unit']);
             // var_dump($item['shipping_cost']); exit;
          }
          return $item;

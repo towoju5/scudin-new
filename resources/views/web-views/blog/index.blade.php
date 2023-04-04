@@ -13,7 +13,7 @@
     <section class="showcase2 p-1" style="background-image: url({{ asset('asset/Rectangle\ 89.png') }});">
         <div class="container">
             <div class="showcase2-tex my-5">
-                <h3>Sell on Scudin with Proven Ecommerce Technologies.Worldwide.</h3>
+                <h3 style="font-size: 48px;">Sell on Scudin with Proven<br> Ecommerce Technologies.<br> Reach Millions of customers <br>Worldwide.</h3>
                 <button class="btn btn-scudin px-5 my-4">Start Selling</button>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <div class="col-lg-9">
                     <div class="row">
                         @foreach($posts->take(2) as $post)
-                        <div class="col-lg-4 col-md-3 col-sm-12">
+                        <div class="col-md-6">
                             <div class="card">
                                 <a href="{{route('blog.show', $post->slug)}}" title="{{$post->title}}">
                                     <img src="{{ $post->blog_image }}" class="card-img-top" alt="..." style="height: 14rem" />
@@ -36,6 +36,9 @@
                                             {{ $post->title }}
                                         </a>
                                     </h5>
+                                    <p class="card-text text-muted">
+                                        {{ $post->excerpt }}
+                                    </p>
                                     <p class="card-text text-muted">
                                         {!! ucwords(reading_time($post->body)) !!}
                                     </p>
@@ -85,7 +88,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $post->title}}</h5>
                                 <p class="card-text text-muted">
-                                    Content Summary <br />content summary
+                                    {{ $post->excerpt }}
                                 </p>
                                 <a href="{{route('blog.show', $post->slug)}}" title="{{$post->title}}">
                                     <small>
@@ -104,21 +107,23 @@
     <section class="blog-trending my-5">
         <div class="container">
             <div class="row">
+            @foreach($posts->skip(3)->take(1) as $post)
                 <div class="col-lg-4">
                     <div class="card-body">
                         <h2 class="card-title">
-                            My Popular and Trending Blog Title Is Here
+                            {{ $post->title}}
                         </h2>
                         <p class="card-text text-muted">
-                            Content Summary <br />content summary
+                            {{ $post->excerpt }}
                         </p>
-                        <a href="#" class="btn">Read in 5 munites</a>
+                        <a href="{{route('blog.show', $post->slug)}}" class="btn">{!! ucwords(reading_time($post->body)) !!}</a>
                     </div>
                 </div>
 
                 <div class="col-lg-8">
-                    <img src="{{ asset('asset/img.png') }}" alt="" class="img-fluid" style="width: 100%; height: 300px" />
+                    <img src="{{ $post->blog_image }}" alt="" class="img-fluid" style="width: 100%; height: 300px" />
                 </div>
+            @endforeach
             </div>
         </div>
     </section>
@@ -151,5 +156,8 @@
     $(document).ready(function(){
         $('.card .card-body .card-title').matchHeight();
     })
+</script>
+<script>
+     $('.card .card-body').matchHeight();
 </script>
 @endpush

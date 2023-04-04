@@ -41,9 +41,9 @@ class ForgotPasswordController extends Controller
             
             $reset_url = url('/') . '/customer/auth/reset-password?token=' . $token;
             if(str_contains($template, '!link')){
-                $message = str_replace('!link', $reset_url, $template);
+                $template = str_replace('!link', $reset_url, $template);
             }
-            send_mail($customer['email'], 'Password Reset', $message, $reset_url);
+            send_mail($customer['email'], 'Password Reset', $template, $reset_url);
             // Mail::to($customer['email'])->send(new \App\Mail\PasswordResetMail($reset_url));
 
             Toastr::success('Check your email. Password reset url sent.');
@@ -77,10 +77,10 @@ class ForgotPasswordController extends Controller
                 $template = \App\Model\BusinessSetting::where(['type' => 'password_reset_success'])->pluck('value')->first();
             
                 if(str_contains($template, '!new_password')){
-                    $message = str_replace('!new_password', $request['confirm_password'], $template);
+                    $template = str_replace('!new_password', $request['confirm_password'], $template);
                 }
 
-                send_mail($data->email, 'Password Updated Successfully', $message);
+                send_mail($data->email, 'Password Updated Successfully', $template);
                 Toastr::success('Password reset successfully.');
                 DB::table('password_resets')->where(['token' => $request['reset_token']])->delete();
                 return redirect('/');

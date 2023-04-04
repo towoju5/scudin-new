@@ -166,7 +166,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <ul class="list-group">
-                                                        @if ($product->added_by == 'admin' || check_ethos($product->seller->id) !== false)
+                                                        @if (auth('customer')->check() && ($product->added_by == 'admin' || check_ethos($product->seller->id) !== false))
                                                             <li class="list-group-item" style="cursor: pointer;"
                                                                 onclick="$('#sh-1').prop( 'checked', true )">
                                                                 <input type="radio" checked name="shipping_method_id"

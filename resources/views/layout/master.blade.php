@@ -23,7 +23,7 @@
 
   <link rel="stylesheet" href="{{ asset('new/style.css') }}" />
 
-  <link rel="shortcut icon" href="./Asset/client3 2.png" type="image/x-icon" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://scudin.com/storage/app/public/company/1659752973_119.png">
   <title>@yield('title') </title>
   @stack('css')
 </head>

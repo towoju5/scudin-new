@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('title', "Sell on Scudin")
-
+<style> .card { border: none !important; } </style>
 @section('content')
 @php $location = userLocation() @endphp
 <section class="showcase">
@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="col-lg-6 col-s-12">
-          <img src="./Asset/image 12.png" alt="" class="img-fluid mt-4" />
+          <img src="{{ asset('asset/image 12.png') }}" alt="" class="img-fluid mt-4" />
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
       <div class="row">
         <div class="col-lg-6 col-sm-12">
           <div class="product-img mt-5">
-            <img src="./Asset/Scudin-product.png" alt="" class="img-fluid" />
+            <img src="{{ asset('asset/Scudin-product.png') }}" alt="" class="img-fluid" />
           </div>
         </div>
         <div class="col-lg-6 col-sm-12">
@@ -60,7 +60,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="card p-2" style="max-width: 24rem">
             <img
-              src="./Asset/Rectangle 135.png"
+              src="{{ asset('asset/Rectangle 135.png') }}"
               class="card-img-top"
               alt="..."
             />
@@ -79,7 +79,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="card p-2" style="max-width: 24rem">
             <img
-              src="./Asset/Rectangle 138.png"
+              src="{{ asset('asset/Rectangle 138.png') }}"
               class="card-img-top"
               alt="..."
             />
@@ -98,7 +98,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="card p-2" style="max-width: 24rem">
             <img
-              src="./Asset/Rectangle 147.png"
+              src="{{ asset('asset/Rectangle 147.png') }}"
               class="card-img-top"
               alt="..."
             />
@@ -107,7 +107,7 @@
                 Scale Your Profit Margin and Gain Economic Power
               </h5>
               <p class="card-text mt-3">
-                YExperience increase in selling efficiency with API
+                Experience increase in selling efficiency with API
                 integration and make <br />
                 economic gain.
               </p>
@@ -118,7 +118,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="card p-2" style="max-width: 24rem">
             <img
-              src="./Asset/Rectangle 144.png"
+              src="{{ asset('asset/Rectangle 144.png') }}"
               class="card-img-top"
               alt="..."
             />
@@ -137,7 +137,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="card p-2" style="max-width: 24rem">
             <img
-              src="./Asset/Rectangle 145.png"
+              src="{{ asset('asset/Rectangle 145.png') }}"
               class="card-img-top"
               alt="..."
             />
@@ -156,7 +156,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="card p-2" style="max-width: 24rem">
             <img
-              src="./Asset/Rectangle 146.png"
+              src="{{ asset('asset/Rectangle 146.png') }}"
               class="card-img-top"
               alt="..."
             />
@@ -251,12 +251,37 @@
       </div>
     </div>
   </section>
+  
+  <section class="mapping" style="background: url({{ asset('asset/PHOTO-2023-01-04-10-10-11\ 2.jpg') }})">
+    <div class="container-fluid">
+      <div class="row p-5">
+        <div class="col-lg-6 col-sm-12">
+          <h3 class="" style="width: 70%">
+            We Simplify The Complexity in The Ecommerce Services with The Best
+            Technology Solutions. We Drive Innovations by Helping Our Sellers
+            Reach Millions of Customers Worldwide.
+          </h3>
+          <button class="btn btn1 px-5 my-4">
+            Get Started by Signing Up Today
+          </button>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <h4 class="" style="width: 40%">
+            <h4 class="" style="width: 40%">
+                <p style="color: var(--golden-scudin)">
+                  Start Selling. Let Your Products Reach Across The World!
+                </p>
+            </h4>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 @endsection
 
 @push('js')
 <script>
-    $(document).ready(function(){
-        $('.card .card-body').matchHeight();
-    })
+     $('.card .card-body').matchHeight();
 </script>
 @endpush
